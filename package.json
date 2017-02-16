@@ -1,0 +1,20 @@
+{
+  "name": "penguin-pug-transform",
+  "version": "0.0.0",
+  "description": "This transforms pug templates to penguin components.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Dominik Burgdörfer <db@domachine.de> (https://domachine.de/)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domachine/penguin-pug-transform.git"
+  },
+  "bugs": {
+    "url": "https://github.com/domachine/penguin-pug-transform/issues"
+  },
+  "homepage": "https://github.com/domachine/penguin-pug-transform#readme"
+}
