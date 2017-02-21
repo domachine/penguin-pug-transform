@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/domachine/penguin-pug-transform/issues"
   },
-  "homepage": "https://github.com/domachine/penguin-pug-transform#readme"
+  "homepage": "https://github.com/domachine/penguin-pug-transform#readme",
+  "dependencies": {
+    "pug": "^2.0.0-beta11"
+  }
 }

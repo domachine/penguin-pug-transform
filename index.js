@@ -9,24 +9,21 @@ module.exports = () => (
       const pugFn = pug.compileClient(source)
       const code =
         `${pugFn}
-const clone = (obj, exclude = []) => {
-  const newObj = {}
-  Object.keys(obj).forEach(key => {
-    if (exclude.indexOf(key) === -1) newObj[key] = obj[key]
-  })
-  return newObj
-}
-export function mount (props, el) {
+export function mount (ctx, props, el) {
   const update = () => {
-    const html = render(props)
+    const html = render(ctx, props)
     if (html !== el.innerHTML) el.innerHTML = html
   }
-  if (!props.store.getState().isBuilt) props.store.subscribe(update)
+  if (process.env.PENGUIN_ENV === 'development') ctx.store.subscribe(update)
   update()
 }
-export function render (props) {
-  const locals = clone(props, ['save', 'destroy', 'store'])
-  locals.fields = props.store.getState().fields
+export function render ({ store, language }, props) {
+  const locals = {}
+  const state = store.getState()
+  locals.props = props
+  locals.fields = state.fields
+  locals.languages = state.languages
+  locals.language = language
   return template(locals)
 }`
       return { code, map: { mappings: '' } }
