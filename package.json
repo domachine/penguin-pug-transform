@@ -1,6 +1,6 @@
 {
   "name": "penguin-pug-transform",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "This transforms pug templates to penguin components.",
   "main": "index.js",
   "scripts": {
