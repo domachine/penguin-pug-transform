@@ -1,11 +1,14 @@
 'use strict'
 
+const { relative } = require('path')
+const minimatch = require('minimatch')
 const pug = require('pug')
 
 module.exports = () => (
   {
     transform (source, id) {
-      if (!id.match(new RegExp(`^${process.cwd()}/components/.+\\.pug$`))) return
+      const p = relative(process.cwd(), id)
+      if (!minimatch(p, 'components/*.pug')) return
       const pugFn = pug.compileClient(source)
       const code =
         `${pugFn}
