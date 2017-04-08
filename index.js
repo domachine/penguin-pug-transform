@@ -27,6 +27,7 @@ export function render ({ store, language }, props) {
   locals.fields = state.fields
   locals.languages = state.languages
   locals.language = language
+  locals.env = process.env.PENGUIN_ENV
   return template(locals)
 }`
       return { code, map: { mappings: '' } }
